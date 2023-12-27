@@ -1,31 +1,46 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# Dependencies
-node_modules
-.pnp
-.pnp.js
-
-# Production
-build
-client/src/contracts
-client/*/src/contracts
-
-# Testing
-coverage
-
-# Env
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Editor
-.vscode
-
-# Misc.
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
 .DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+client-1/client/.dart_tool/
+client-1/client/.flutter-plugins
+client-1/client/.flutter-plugins-dependencies
+client-1/client/.packages
+client-1/client/.pub-cache/
+client-1/client/.pub/
+client-1/client/build/
+
+# Symbolication related
+client-1/client/app.*.symbols
+
+# Obfuscation related
+client-1/client/app.*.map.json
+
+# Android Studio will place build artifacts here
+client-1/client/android/app/debug
+client-1/client/android/app/profile
+client-1/client/android/app/release
+client-1/client/ios/Runner.xcodeproj/project.pbxproj
+node_modules

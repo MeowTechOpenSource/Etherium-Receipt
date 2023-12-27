@@ -1,39 +1,24 @@
-# React Truffle Box
+# Blockchain based warranty/purchase record
+The below is the structure of the project
 
-This box comes with everything you need to start using Truffle to write, compile, test, and deploy smart contracts, and interact with them from a React app.
+### Solidity/Smart Contracts (./contracts/)
+- contracts/Receipt.sol -- The contract for the main receipt contract
+- contracts/StorageContracts.sol -- The contract used for storing contract addresses
 
-## Installation
+### Frontend/Client/dAPP (./client-1/client/)
+A demo flutter application(can be run on Windows/Android/iOS...) is included with the following features
+1. View all of the purchases/receipts no matter who issued it
+2. Transfer ownership of receipts
+3. Trusted/Database of trusted issuers/minters
+4. Details of product, such as identifier, activation date, and warranty expiry date
+5. Purchasing Products Demo -- REQUIRE THE PYTHON BACKEND
 
-First ensure you are in an empty directory.
+### Backend (./backend)
+The demo backend is used to simulate a company server, which customers could buy products from, in this example, it is "ABC Technology Ltd."(Address:0x1ea8Ed0363F1d03C7907cE8D299823Fa3FAa4887)
 
-Run the `unbox` command using 1 of 2 ways.
+The backend is written in python and flask for simple and quick setup.
 
-```sh
-# Install Truffle globally and run `truffle unbox`
-$ npm install -g truffle
-$ truffle unbox react
-```
+to run the backend, just run the server.py
 
-```sh
-# Alternatively, run `truffle unbox` via npx
-$ npx truffle unbox react
-```
-
-Start the react dev server.
-
-```sh
-$ cd client
-$ npm start
-```
-
-From there, follow the instructions on the hosted React app. It will walk you through using Truffle and Ganache to deploy the `SimpleStorage` contract, making calls to it, and sending transactions to change the contract's state.
-
-## FAQ
-
-- __How do I use this with Ganache (or any other network)?__
-
-  The Truffle project is set to deploy to Ganache by default. If you'd like to change this, it's as easy as modifying the Truffle config file! Check out [our documentation on adding network configurations](https://trufflesuite.com/docs/truffle/reference/configuration/#networks). From there, you can run `truffle migrate` pointed to another network, restart the React dev server, and see the change take place.
-
-- __Where can I find more resources?__
-
-  This Box is a sweet combo of [Truffle](https://trufflesuite.com) and [Webpack](https://webpack.js.org). Either one would be a great place to start!
+## Setup and testings
+In order to test the project, you must ensure the Ganache is setup and the addresses in both truffle-config, and also the server and the flutter app is configured correctly. At the same time, the private key in the flutter app and server should be modified to fit the ganache environment you are in. The storage contract must first be created. You have to obtain the storage contract address and put it in both the flutter app and also the contract itself (needs recompiling)
