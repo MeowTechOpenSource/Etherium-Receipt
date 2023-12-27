@@ -9,6 +9,7 @@ import 'blockchain.dart';
 void main() {
   runApp(MaterialApp(
     home: MainPage(),
+    theme: ThemeData(useMaterial3: true),
   ));
 }
 
@@ -21,6 +22,11 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   var selected = "0x0";
+  var userID = 0;
+  var accounts = [
+    "0x6A04A136b20e0985B05f8cf0E1cDD7FD210d2062",
+    "0xcf9Ca99a3bC099713C35474bB7D14fbBD0F507A0"
+  ];
   List<dynamic> displayOptions = ["", ""];
   List<dynamic> contracts = [
     ["0x0", "", ""]
@@ -41,6 +47,28 @@ class _MainPageState extends State<MainPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(accounts[userID]),
+        actions: [
+          IconButton(
+              onPressed: () {
+                if (userID == 0) {
+                  userID = 1;
+                } else {
+                  userID = 0;
+                }
+                ChangeAcconts(userID);
+                setState(() {});
+                getMyContracts().then((value) {
+                  setState(() {
+                    contracts = value;
+                    selected = value[0][0];
+                  });
+                });
+              },
+              icon: Icon(Icons.refresh))
+        ],
+      ),
       body: Column(children: [
         Padding(
           padding: const EdgeInsets.all(8.0),

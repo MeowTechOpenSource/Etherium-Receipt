@@ -8,7 +8,7 @@ import 'package:web3dart/web3dart.dart';
 
 final String _rpcUrl = "http://localhost:7545";
 final String _wsUrl = "ws://localhost:7545/";
-final String _privateKey =
+String _privateKey =
     "0x3c0c8b6630e427cde7a5ecfe0249927115ef16cb69c435dc43025dcc65757b5d";
 //please change this based on the address of the storage
 final String storageAddress = "0x97f3797088BDad91Bd90F4D9a84C0b914911f2aD";
@@ -17,6 +17,14 @@ var httpClient = Client();
 Web3Client ethClient = Web3Client(apiUrl, httpClient);
 var credentials = EthPrivateKey.fromHex(_privateKey);
 var address = credentials.address;
+void ChangeAcconts(int index) {
+  var keys = [
+    "0x3c0c8b6630e427cde7a5ecfe0249927115ef16cb69c435dc43025dcc65757b5d",
+    "0xc4be64989bd59499fd4d039c3e8d06ce3ed907f7bea193722a8cad29dd678d0a"
+  ];
+  _privateKey = keys[index];
+}
+
 Future getMyContracts() async {
   var contracts = await loadContracts();
   var myContracts = [];
